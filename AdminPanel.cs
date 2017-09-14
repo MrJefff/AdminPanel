@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("AdminPanel", "austinv900", "1.2.6", ResourceId = 2034)]
+    [Info("AdminPanel", "austinv900", "1.2.7", ResourceId = 2034)]
     internal class AdminPanel : RustPlugin
     {
         [PluginReference]
