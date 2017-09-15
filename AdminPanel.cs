@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("AdminPanel", "austinv900", "1.2.7", ResourceId = 2034)]
+    [Info("AdminPanel", "austinv900", "1.2.8", ResourceId = 2034)]
     internal class AdminPanel : RustPlugin
     {
         [PluginReference]
@@ -68,11 +68,11 @@ namespace Oxide.Plugins
 
         #region AdminRadar
 
-        private bool IsRadar(BasePlayer player)
+        private bool IsRadar(string id)
         {
             if (AdminRadar == null)
                 return false;
-            return AdminRadar.Call<bool>("IsRadar", player);
+            return AdminRadar.Call<bool>("IsRadar", id);
         }
 
         private void ToggleRadar(BasePlayer player)
@@ -365,7 +365,7 @@ namespace Oxide.Plugins
 
             if (Godmode) { if (IsGod(player.UserIDString)) { BTNColorGod = btnActColor; }; };
             if (Vanish) { if (IsInvisable(player)) { BTNColorVanish = btnActColor; }; };
-            if (AdminRadar) { if (IsRadar(player)) { BTNColorRadar = btnActColor; }; };
+            if (AdminRadar) { if (IsRadar(player.UserIDString)) { BTNColorRadar = btnActColor; }; };
 
             var GUIElement = new CuiElementContainer();
 
